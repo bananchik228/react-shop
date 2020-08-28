@@ -1,7 +1,9 @@
 import React from 'react'
 
-import '@styles/App.module.scss'
+import './App.scss'
 
-export default function(props) {
-    return <h1>{props.text}</h1>
+import Header from '@components/Header'
+
+export default function() {
+    return <Header />
 }

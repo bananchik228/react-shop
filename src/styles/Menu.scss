@@ -1,0 +1,29 @@
+.menu {
+    display: flex;
+
+    .menu__item { 
+        border-radius: 4px;
+
+        a {
+            display: block;
+            padding: 10px 12px 10px 12px;
+            color: #337ab7;
+        }
+
+        &:not(.menu__item_select):hover {
+            background: rgb(238, 238, 238);
+        }
+    }
+
+    .menu__item_select {
+        background: #337ab7;
+
+        a {
+            color: white;
+        }
+    }
+
+    .menu__item:not(:first-child) {
+        margin-left: 12px;
+    }
+}

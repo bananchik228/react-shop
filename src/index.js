@@ -6,6 +6,6 @@ import App from './App'
 
 ReactDOM.render((
     <BrowserRouter>
-        <App text="Hello React.js!" />
+        <App />
     </BrowserRouter>
 ), document.getElementById('root'))

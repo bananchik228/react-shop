@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('fonts/Ubuntu/Regular.ttf');
+}
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 0 8.5% 0 8.5%;
+
+    * {
+        outline: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
