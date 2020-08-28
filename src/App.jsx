@@ -4,6 +4,6 @@ import './App.scss'
 
 import Header from '@components/Header'
 
-export default function() {
+export default () => {
     return <Header />
 }

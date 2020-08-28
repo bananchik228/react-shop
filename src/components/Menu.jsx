@@ -2,18 +2,14 @@ import React from 'react'
 
 import '@styles/Menu.scss'
 
-export default function(props) {
+import MenuItem from './MenuItem'
+
+export default () => {
     return (
         <div className="menu">
-            <div className="menu__item menu__item_select">
-                <a href="/">Главная</a>
-            </div>
-            <div className="menu__item">
-                <a href="/cart">Корзина</a>
-            </div>
-            <div className="menu__item">
-                <a href="/order">Оформление заказа</a>
-            </div>
+            <MenuItem path="/" name="Главная" />
+            <MenuItem path="/cart" name="Корзина" />
+            <MenuItem path="/order" name="Оформление заказа" />
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Menu from './Menu'
 
 import '@styles/Header.scss'
 
-export default function() {
+export default () => {
     return (
         <div className="header">
             <h1>Мой интернет-магазин</h1>
