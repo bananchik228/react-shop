@@ -3,12 +3,19 @@
     src: url('fonts/Ubuntu/Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    src: url('fonts/Ubuntu/Medium.ttf');
+}
+
 body {
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
     padding: 0 8.5% 0 8.5%;
 
-    * {
+    *, textarea, input, button {
+        font-family: 'Ubuntu', sans-serif;
         outline: none;
     }
 

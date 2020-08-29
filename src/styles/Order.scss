@@ -1,0 +1,109 @@
+.order {
+    margin: 20px 0 25px 0;
+    display: flex;
+    flex-direction: column;
+
+    .order__item {
+        margin-top: 15px;
+        display: flex;
+
+        .order__submit {
+            font-size: 14px;
+            margin-top: 12px;
+            padding: 8px 10px 8px 10px;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            background-color: #337ab7;
+            border: 1px solid #2e6da4;
+            align-self: flex-start;
+        }
+
+        .order__submit:hover {
+            cursor: pointer;
+            background: #2e6ca3;
+        }
+
+        .order__name {
+            width: 16%;
+            display: flex;
+            padding-top: 7px;
+            flex-direction: column;
+
+            label {
+                align-self: flex-end;
+            }
+
+            b {
+                font-weight: 500;
+            }
+        }
+
+        .order__input {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            margin-left: 2.2%;
+
+            .order__message {
+                margin-bottom: 0px;
+            }
+
+            input, textarea {
+                font-size: 15px;
+                border-radius: 4px;
+                border: 1px solid silver;
+                padding: 7px 10px 7px 10px;
+            }
+
+            p {
+                margin: 9px 0 6px 0;
+
+                input[type=radio] {
+                    margin-right: 4px;
+                }
+            }
+
+            textarea {
+                height: 60px;
+                letter-spacing: 0;
+            }
+        }
+    }
+
+    .order__message {
+        border-radius: 4px;
+        padding: 14px;
+        border-style: solid;
+        border-width: 1px;
+        margin-bottom: 10px;
+
+        b {
+            font-weight: 500;
+        }
+    }
+
+    .order__message_info {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
+
+    .order__message_warning {
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+    }
+
+    .order__message_error {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    .order__message_success {
+        color: #3c763d;
+        background: #dff0d8;
+        border-color: #d6e9c6;
+    }
+}
