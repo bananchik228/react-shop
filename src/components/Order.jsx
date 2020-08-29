@@ -1,3 +1,3 @@
-export default function() {
+export default () => {
     return 'This is Order!'
 }

@@ -5,7 +5,7 @@ import Catalog from './Catalog'
 import Cart from './Cart'
 import Order from './Order'
 
-export default function() {
+export default () => {
     return (
         <div className="content">
             <Route path="/">

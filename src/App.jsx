@@ -7,7 +7,7 @@ import Content from '@components/Content'
 
 export default class extends React.Component {
     state = {
-        cartList: Array(9)
+        cartList: Array(5)
     }
 
     render() {

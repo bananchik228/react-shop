@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Menu from './Menu'
-
 import '@styles/Header.scss'
+
+import Menu from './Menu'
 
 export default ({count}) => {
     return (
