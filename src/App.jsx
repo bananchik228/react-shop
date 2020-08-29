@@ -5,6 +5,8 @@ import './App.scss'
 import Header from '@components/Header'
 import Content from '@components/Content'
 
+import sumKeyValues from '@helpers/sumKeyValues'
+
 import MyImage from '@images/tv_supra.jpg'
 import MyImage1 from '@images/notebook_lenovo.jpg'
 import MyImage2 from '@images/ipad.jpg'
@@ -42,24 +44,44 @@ export default class extends React.Component {
                 img: MyImage2
             }
         ],
-        cartList: []
+        cartList: {}
     }
 
     addToCart = product => {
-        this.setState(state => ({
-            cartList: [...state.cartList, product]
-        }))
+        let cartItem = this.state.cartList[product.name]
+
+        if (cartItem) {
+            this.setState(state => ({
+                cartList: {
+                    ...state.cartList,
+                    [product.name]: {
+                        ...state.cartList[product.name],
+                        quantity: state.cartList[product.name].quantity + 1
+                    }
+                }
+            }))
+        } else {
+
+            this.setState(state => ({
+                cartList: {
+                    ...state.cartList,
+                    [product.name]: {
+                        price: product.price,
+                        quantity: 1
+                    }
+                }
+            }))
+        }
     }
 
     render() {
-        const {cartList, catalogList, categories} = this.state
+        const count = sumKeyValues(Object.values(this.state.cartList), 'quantity')
 
         return (
             <>
-                <Header count={cartList.length} />
+                <Header count={count} />
                 <Content 
-                    categories={categories} 
-                    catalogList={catalogList}
+                    {...this.state}
                     addToCart={this.addToCart}
                 />
             </>

@@ -7,9 +7,9 @@ import { Link, useLocation } from 'react-router-dom'
 
 export default ({categories}) => {
     const location = useLocation()
-    const urlParams = new URLSearchParams(location.search)
-    const queryCategory = urlParams.get('category')
-    const select = queryCategory === null ? 'categories__item_select' : null
+    const params = new URLSearchParams(location.search)
+    const category = params.get('category')
+    const select = category === null ? 'categories__item_select' : null
 
     return (
         <div className="categories">
@@ -21,12 +21,11 @@ export default ({categories}) => {
             {categories.map(name => (
                 <CategoriesItem 
                     name={name} 
-                    queryCategory={queryCategory}
+                    queryCategory={category}
                     key={name}
                 />
             ))}
 
-            
         </div>
     )
 }

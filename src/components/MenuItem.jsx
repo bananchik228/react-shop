@@ -9,8 +9,10 @@ export default ({path, name, count}) => {
         <div className={`menu__item ${select}`}>
             <Link to={path}>
                 {name}
+                
                 {count ? 
-                    <div className="menu__count" data-small={count > 9}>{count}</div> : null}
+                    <div className="menu__count" data-small={count > 9}>{count}</div>
+                : null}
             </Link>
         </div>
     )
