@@ -4,11 +4,11 @@ import '@styles/Menu.scss'
 
 import MenuItem from './MenuItem'
 
-export default () => {
+export default ({count}) => {
     return (
         <div className="menu">
             <MenuItem path="/" name="Главная" />
-            <MenuItem path="/cart" name="Корзина" />
+            <MenuItem path="/cart" name="Корзина" count={count} />
             <MenuItem path="/order" name="Оформление заказа" />
         </div>
     )
