@@ -4,13 +4,15 @@ import '@styles/Catalog.scss'
 
 import CatalogItem from './CatalogItem'
 
-export default () => {
+export default ({catalogList}) => {
     return (
         <div className="catalog">
-            <CatalogItem />
-            <CatalogItem />
-            <CatalogItem />
-            <CatalogItem />
+            {catalogList.map(product => (
+                <CatalogItem 
+                    {...product}
+                    key={product.name} 
+                />
+            ))}
         </div>
     )
 }

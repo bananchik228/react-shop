@@ -6,7 +6,7 @@ import Catalog from './Catalog'
 import Cart from './Cart'
 import Order from './Order'
 
-export default () => {
+export default ({categories, catalogList}) => {
     return (
         <div className="content">
             <Route path="/">
@@ -14,9 +14,10 @@ export default () => {
             </Route>
 
             <Route exact path="/catalog">
-                <Categories />
-                <Catalog />
+                <Categories categories={categories} />
+                <Catalog catalogList={catalogList} />
             </Route>
+            
             <Route exact path="/cart">
                 <Cart />
             </Route>
