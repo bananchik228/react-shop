@@ -18,9 +18,10 @@ export default ({catalogList, addToCart}) => {
 
     return (
         <div className="catalog">
-            {catalogList.map(product => (
+            {catalogList.map((product, index) => (
                 <CatalogItem 
                     product={product}
+                    number={index + 1}
                     addToCart={addToCart}
                     key={product.name} 
                 />

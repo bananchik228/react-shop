@@ -32,7 +32,7 @@ export default class extends React.Component {
             {
                 name: 'Ноутбук Lenovo v2',
                 category: 'Ноутбуки',
-                description: 'Оочень ощный офисный ноутбук.',
+                description: 'Оочень мощный офисный ноутбук.',
                 price: 80000,
                 img: MyImage1
             },
