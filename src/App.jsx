@@ -7,10 +7,6 @@ import Content from '@components/Content'
 
 import sumKeyValues from '@helpers/sumKeyValues'
 
-import MyImage from '@images/tv_supra.jpg'
-import MyImage1 from '@images/notebook_lenovo.jpg'
-import MyImage2 from '@images/ipad.jpg'
-
 export default class extends React.Component {
     state = {
         categories: ['Телевизоры', 'Ноутбуки', 'Планшеты'],
@@ -20,28 +16,40 @@ export default class extends React.Component {
                 category: 'Телевизоры',
                 description: 'Full HD телевизор для вашего дома.',
                 price: 30000,
-                img: MyImage
+                img: 'images/tv_supra.jpg'
             },
             {
                 name: 'Ноутбук Lenovo',
                 category: 'Ноутбуки',
                 description: 'Мощный офисный ноутбук.',
+                params: [
+                    {
+                        name: 'Характеристики',
+                        description: 'Экран: 15.6\'; разрешение экрана: 1920×1080; тип матрицы: TN; процессор: AMD Ryzen 3 2200u; частота: 2.1 ГГц (3.7 ГГц, в режиме Turbo); память: 4096 Мб, DDR4; SSD: 256 Гб; AMD Radeon Vega 8; WiFi; Bluetooth; HDMI; WEB-камера; Free DOS'
+                    }
+                ],
+                selects: [
+                    {
+                        name: 'Цвет',
+                        values: ['Белый', 'Чёрный', 'Красный']
+                    }
+                ],
                 price: 50000,
-                img: MyImage1
+                img: 'images/notebook_lenovo.jpg'
             },
             {
                 name: 'Ноутбук Lenovo v2',
                 category: 'Ноутбуки',
                 description: 'Оочень мощный офисный ноутбук.',
                 price: 80000,
-                img: MyImage1
+                img: 'images/notebook_lenovo.jpg'
             },
             {
                 name: 'Apple Ipad',
                 category: 'Планшеты',
                 description: 'Очень дорогой планшет.',
                 price: 80000,
-                img: MyImage2
+                img: 'images/ipad.jpg'
             }
         ],
         cartList: {}
