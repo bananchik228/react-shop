@@ -16,11 +16,11 @@ export default ({categories, catalogList, cartList, addToCart}) => {
                 </Route>
                 
                 <Route exact path="/cart">
-                    <Cart />
+                    <Cart cartList={cartList /*{}*/} />
                 </Route>
                 
                 <Route exact path="/order">
-                    <Order cartList={cartList} />
+                    <Order cartList={cartList /*{}*/ } />
                 </Route>
 
                 <Redirect to="/catalog" />

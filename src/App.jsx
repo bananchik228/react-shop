@@ -66,6 +66,7 @@ export default class extends React.Component {
                 cartList: {
                     ...state.cartList,
                     [product.name]: {
+                        category: product.category,
                         price: product.price,
                         quantity: 1
                     }
