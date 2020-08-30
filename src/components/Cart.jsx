@@ -21,11 +21,12 @@ export default ({cartList, addOneToCart, removeToCart}) => {
             <table>
                 <thead>
                     <tr>
-                        <th width="25%" align="left">Название</th>
-                        <th width="21%" align="left">Категория</th>
-                        <th width="17%" align="left">Цена</th>
-                        <th width="17%" align="left">Количество</th>
-                        <th width="20%" align="left">Сумма</th>
+                        <th width="17%" align="left">Название</th>
+                        <th width="16%" align="left">Категория</th>
+                        <th width="18%" align="left">Дополнительно</th>
+                        <th width="13%" align="left">Цена</th>
+                        <th width="15%" align="left">Количество</th>
+                        <th width="16%" align="left">Сумма</th>
                     </tr>
                 </thead>
                 <tbody>

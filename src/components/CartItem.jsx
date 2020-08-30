@@ -5,6 +5,7 @@ export default ({name, product, addOneToCart, removeToCart}) => {
         <tr>
             <td>{name}</td>
             <td>{product.category}</td>
+            <td>Пусто</td>
             <td>{product.price} руб.</td>
             <td>
                 <span class="remove" onClick={() => removeToCart(name)}>-</span>
