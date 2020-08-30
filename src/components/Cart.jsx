@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 import '@styles/Cart.scss'
 
-export default ({cartList}) => {
+import CartItem from './CartItem'
+
+export default ({cartList, addOneToCart, removeToCart}) => {
 
     const keys = Object.keys(cartList)
     console.log(keys)
@@ -28,13 +30,12 @@ export default ({cartList}) => {
                 </thead>
                 <tbody>
                     {keys.map(name => (
-                        <tr>
-                            <td>{name}</td>
-                            <td>{cartList[name].category}</td>
-                            <td>{cartList[name].price} руб.</td>
-                            <td>{cartList[name].quantity}</td>
-                            <td>{cartList[name].quantity * cartList[name].price} руб.</td>
-                        </tr>
+                        <CartItem 
+                            name={name} 
+                            product={cartList[name]} 
+                            addOneToCart={addOneToCart}
+                            removeToCart={removeToCart}
+                        />
                     ))}
                 </tbody>
             </table>

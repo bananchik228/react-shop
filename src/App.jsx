@@ -75,6 +75,39 @@ export default class extends React.Component {
         }
     }
 
+    addOneToCart = name => {
+        this.setState(state => ({
+            cartList: {
+                ...state.cartList,
+                [name]: {
+                    ...state.cartList[name],
+                    quantity: state.cartList[name].quantity + 1
+                }
+            } 
+        }))
+    }
+
+    removeToCart = (name, remove) => {
+        if (this.state.cartList[name].quantity > 1 && !remove) {
+            this.setState(state => ({
+                cartList: {
+                    ...state.cartList,
+                    [name]: {
+                        ...state.cartList[name],
+                        quantity: state.cartList[name].quantity - 1
+                    }
+                } 
+            }))
+        } else {
+            const cartList = {...this.state.cartList}
+            delete cartList[name]
+
+            this.setState({
+                cartList: cartList
+            })
+        }
+    }
+
     render() {
         const count = sumKeyValues(Object.values(this.state.cartList), 'quantity')
 
@@ -84,6 +117,8 @@ export default class extends React.Component {
                 <Content 
                     {...this.state}
                     addToCart={this.addToCart}
+                    addOneToCart={this.addOneToCart}
+                    removeToCart={this.removeToCart}
                 />
             </>
         )

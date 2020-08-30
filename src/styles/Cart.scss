@@ -10,7 +10,34 @@ table {
     td, th {
         border: 1px solid silver;
         font-size: 16px;
-        color: #333;
+        position: relative;
         padding: 8px;
+    }
+
+    td span.remove, span.add, span.removeСompletely {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        font-weight: bold;
+        font-size: 24px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    td span.removeСompletely {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 8px;
+    }
+
+    td span.remove {
+        margin-right: 12px;
+    }
+
+    td span.add {
+        margin-left: 12px;
     }
 }
