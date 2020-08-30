@@ -8,7 +8,6 @@ import CartItem from './CartItem'
 export default ({cartList, addOneToCart, removeToCart}) => {
 
     const keys = Object.keys(cartList)
-    console.log(keys)
     const values = Object.values(cartList)
 
     let price = 0
@@ -36,6 +35,7 @@ export default ({cartList, addOneToCart, removeToCart}) => {
                             product={cartList[name]} 
                             addOneToCart={addOneToCart}
                             removeToCart={removeToCart}
+                            key={name}
                         />
                     ))}
                 </tbody>

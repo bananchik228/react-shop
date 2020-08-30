@@ -25,13 +25,13 @@ export default class extends React.Component {
                 params: [
                     {
                         name: 'Характеристики',
-                        description: 'Экран: 15.6\'; разрешение экрана: 1920×1080; тип матрицы: TN; процессор: AMD Ryzen 3 2200u; частота: 2.1 ГГц (3.7 ГГц, в режиме Turbo); память: 4096 Мб, DDR4; SSD: 256 Гб; AMD Radeon Vega 8; WiFi; Bluetooth; HDMI; WEB-камера; Free DOS'
+                        description: 'Экран: 15.6\'; разрешение экрана: 1920×1080; тип матрицы: TN; процессор: AMD Ryzen 3 2200u; частота: 2.1 ГГц (3.7 ГГц, в режиме Turbo); память: 4096 Мб, DDR4; AMD Radeon Vega 8; WiFi; Bluetooth; HDMI; WEB-камера; Free DOS'
                     }
                 ],
                 selects: [
                     {
-                        name: 'Цвет',
-                        values: ['Белый', 'Чёрный', 'Красный']
+                        name: 'Диск',
+                        values: ['1TB HDD', '256GB SSD']
                     }
                 ],
                 price: 50000,
@@ -48,6 +48,12 @@ export default class extends React.Component {
                 name: 'Apple Ipad',
                 category: 'Планшеты',
                 description: 'Очень дорогой планшет.',
+                selects: [
+                    {
+                        name: 'Цвет',
+                        values: ['Белый', 'Чёрный', 'Красный']
+                    }
+                ],
                 price: 80000,
                 img: 'images/ipad.jpg'
             }
@@ -55,31 +61,63 @@ export default class extends React.Component {
         cartList: {}
     }
 
-    addToCart = product => {
-        let cartItem = this.state.cartList[product.name]
+    addToCart = (product, event) => {
+        const selects = event.target.parentElement.getElementsByTagName('select')
 
-        if (cartItem) {
-            this.setState(state => ({
-                cartList: {
-                    ...state.cartList,
-                    [product.name]: {
-                        ...state.cartList[product.name],
-                        quantity: state.cartList[product.name].quantity + 1
+        let noParams = false
+        const addSelects = []
+
+        for(let i = 0; i < selects.length; i++) {
+            if (selects[i].value === product.selects[i].name) {
+                alert('Пожалуйста выберите все параметры!')
+                noParams = true
+                break
+            } else {
+                addSelects.push({name: product.selects[i].name, value: selects[i].value})
+            }
+        }
+
+        if (!noParams) {
+
+            const selects = []
+            for (let select of addSelects) {
+                selects.push(select.value)
+            }
+            const selectsName = ` (${selects.join(', ')})`
+            
+            const name = `${product.name}${selectsName !== ' ()' ? selectsName : ''}`
+
+            const cartItem = this.state.cartList[name]
+
+            if (cartItem && JSON.stringify(cartItem.selects) === JSON.stringify(addSelects)) {
+                this.setState(state => ({
+                    cartList: {
+                        ...state.cartList,
+                        [name]: {
+                            ...state.cartList[name],
+                            quantity: state.cartList[name].quantity + 1
+                        }
                     }
-                }
-            }))
-        } else {
+                }))
+
+                alert(`Товар "${name}" добавлен в корзину!`)
+                return false
+            }
 
             this.setState(state => ({
                 cartList: {
                     ...state.cartList,
-                    [product.name]: {
+                    [name]: {
                         category: product.category,
+                        selects: addSelects,
                         price: product.price,
                         quantity: 1
                     }
                 }
             }))
+
+            alert(`Товар "${product.name}" добавлен в корзину!`)
+            return true
         }
     }
 

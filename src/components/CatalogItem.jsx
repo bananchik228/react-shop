@@ -12,11 +12,24 @@ export default ({product, number, addToCart}) => {
                 <Link to={`/catalog/${category}/${number}`}>{name}</Link>
 
                 <p>{description}</p>
+
+                <div className="selects">
+
+                    {product.selects ? product.selects.map(param => (
+                        <select key={param.name}>
+                            <option value={param.name}>{param.name}</option>
+                            {param.values.map(value => (
+                                <option key={value} value={value}>{value}</option>
+                            ))}
+                        </select>
+                    )) : null}
+
+                </div>
+
                 <b>{price}₽</b>
 
-                <button onClick={() => {
-                    addToCart(product)
-                    alert(`Товар "${name}" добавлен в корзину!`)
+                <button onClick={event => {
+                    addToCart(product, event)
                 }}>Добавить в корзину</button>
             </div>
         </div>

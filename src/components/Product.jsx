@@ -15,7 +15,7 @@ export default ({catalogList, addToCart}) => {
             <h1>{product.name}</h1>
 
             <div className="product__info">
-                <img src={product.img} alt={product.name} />
+                <img src={`../../${product.img}`} alt={product.name} />
                 <div className="product__description">
                     <h3>Категория</h3>
                     <p>{product.category}</p>
@@ -23,15 +23,27 @@ export default ({catalogList, addToCart}) => {
                     <p>{product.description}</p>
 
                     {product.params ? product.params.map(param => (
-                        <>
+                        <React.Fragment key={param.name}>
                             <h3>{param.name}</h3>
                             <p>{param.description}</p>
-                        </>
+                        </React.Fragment>
                     )) : null}
 
-                    <button onClick={() => {
-                        addToCart(product)
-                        alert(`Товар "${product.name}" добавлен в корзину!`)
+                    <div className="selects">
+
+                        {product.selects ? product.selects.map(param => (
+                            <select key={param.name}>
+                                <option value={param.name}>{param.name}</option>
+                                {param.values.map(value => (
+                                    <option key={value} value={value}>{value}</option>
+                                ))}
+                            </select>
+                        )) : null}
+
+                    </div>
+
+                    <button onClick={event => {
+                        addToCart(product, event)
                     }}>
                         Добавить в корзину ({product.price}₽)
                     </button>
