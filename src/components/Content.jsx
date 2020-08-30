@@ -20,7 +20,7 @@ export default ({categories, catalogList, cartList, addToCart}) => {
                 </Route>
                 
                 <Route exact path="/order">
-                    <Order />
+                    <Order cartList={cartList} />
                 </Route>
 
                 <Redirect to="/catalog" />

@@ -17,6 +17,15 @@
             background-color: #337ab7;
             border: 1px solid #2e6da4;
             align-self: flex-start;
+
+            &:disabled {
+                opacity: 0.7;
+
+                &:hover {
+                    background: #337ab7;
+                    cursor: default;
+                }
+            }
         }
 
         .order__submit:hover {
